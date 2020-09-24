@@ -11,5 +11,3 @@ var spotifyApi = new SpotifyWebApi({
 module.exports = {
     spotifyApi
 }
-
-// spotifyApi.getPlaylistTracks()
