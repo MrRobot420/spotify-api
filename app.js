@@ -1,17 +1,12 @@
 const express = require('express')
-const app = express()
 const bodyParser = require('body-parser')
+const { router } = require('./router')
+const app = express()
+const cors = require('cors')
 const port = 5000
 
 app.use(bodyParser.urlencoded({ extended: true }))
-
-app.post('/spotify-redirect', (req, res) => {
-    console.log(req.body);
-})
-
-app.get('/get-profile', (req, res) => {
-    console.log('REQUEST on get-profile')
-    res.status(200).json({ response: 'OK' })
-})
+app.use(cors())
+app.use(router)
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
