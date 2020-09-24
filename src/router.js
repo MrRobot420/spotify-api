@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { spotifyApi } = require('./services/spotify-api')
-const { refreshToken } = require('./services/auth')
+const { createAuthUrl, refreshToken } = require('./services/auth')
 
 router.get('/spotify-redirect-token', async (req, res) => {
     console.log('GET request on /spotify-redirect-token')
@@ -14,6 +14,14 @@ router.get('/get-profile', async (req, res) => {
     const result = await spotifyApi.getMe()
     console.log(result)
     res.status(200).json({ response: 'OK' })
+})
+
+router.get('/get-auth-url', (req, res) => {
+    console.log('GET request on /get-auth-url')
+    const url = createAuthUrl()
+    console.log(url)
+    const link = `<a href=${url}>Check me out!</a>`
+    res.status(200).send(link)
 })
 
 module.exports = {
