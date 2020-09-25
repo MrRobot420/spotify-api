@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const { spotifyApi } = require('./services/spotify-api')
 const { createAuthUrl, refreshToken } = require('./services/auth')
+const { getAllPlaylists, getPlaylist } = require('./services/spotify-service')
+const { response } = require('express')
 
 router.get('/spotify-redirect-token', async (req, res) => {
     console.log('GET request on /spotify-redirect-token')
@@ -22,6 +24,26 @@ router.get('/get-auth-url', (req, res) => {
     console.log(url)
     const link = `<a href=${url}>Check me out!</a>`
     res.status(200).send(link)
+})
+
+router.get('/get-playlists', async (req, res) => {
+    console.log('GET request on /get-playlists')
+    const response = await getAllPlaylists(req.body.user)
+    res.status(200).json(response)
+})
+
+router.post('/get-playlist-by-id', async (req, res) => {
+    console.log('GET request on /get-playlist-by-id')
+    console.log(req.body)
+    const response = await getPlaylist(req.body.id)
+    res.status(200).json(response)
+})
+
+router.get('/get-playlist-by-id', async (req, res) => {
+    console.log('GET request on /get-playlist-by-id')
+    console.log(req.query)
+    const response = await getPlaylist(req.query.id)
+    res.status(200).json(response)
 })
 
 module.exports = {
