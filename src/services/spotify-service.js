@@ -27,11 +27,12 @@ const getPlaylist = async (id) => {
         })
         console.log(`Track: ${track.track.name}, ${artists}`);
         console.log()
-        playlistData.push({ idx: idx+1, track: `${track.track.name}, ${artists}` })
-        // playlistData.push(`${track.track.name}, ${artists}`)
+        // playlistData.push({ idx: idx+1, track: `${track.track.name}, ${artists}` })
+        playlistData.push(`${track.track.name}, ${artists}`)
     })
     return playlistData
 }
+
 
 module.exports = {
     getAllPlaylists,

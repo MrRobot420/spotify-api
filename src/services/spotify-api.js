@@ -8,7 +8,7 @@ var spotifyApi = new SpotifyWebApi({
     redirectUri: 'https://ee0b68026546.ngrok.io/spotify-redirect'
 });
 
-spotifyApi.setAccessToken('BQCpsiUE3vCWkFm40v6uMJf66Bq40q3POM9IFJMUoo1mlNRHCCpo_V0C6S8Vs_KYwYDqsvoDvGUAGdiFMDJwpbORmIxxwOHhwbQ52Zpa4KsEHmBB67wBD4SIY6i912iU3h_UtPWJgnp_8BHN9T9GWvCezXzxy-C9Ys53Z0AZURw2QqA4KsCLLW7nmPVH7KOS')
+spotifyApi.setAccessToken('BQC6rSaSN0A4pHbNkYNfhcAxnd2bu5TzEnfvJXhg0IDpjlEjWQPbJumEM3HT59NOUcICwaX-0zEu7I6pvbLWsotGTYULGVKYN26x3B3H63aplrGG9p3r0IfISlzFkviOMBsYmcDRNvkTIAfyXcdGAIT8jJaiRDcPTCj_hWg5tsYUP8nXFx6tTX9u28b8wu0LsTWpY-aD6w')
 
 module.exports = {
     spotifyApi

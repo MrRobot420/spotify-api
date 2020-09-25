@@ -4,7 +4,7 @@ const config = require('config')
 const createAuthUrl = () => {
     const baseUrl = `https://accounts.spotify.com/authorize?response_type=code`
     const clientId = `&client_id=${config.get('SECRETS.clientId')}`
-    const scope = '&scope=playlist-read-private,user-read-private,user-read-email'
+    const scope = '&scope=playlist-read-private,user-read-private,user-read-email,app-remote-control,user-read-playback-state,user-modify-playback-state'
     const redirectUrl = `&redirect_uri=${config.get('REDIRECT_URL')}spotify-redirect-token/`
     return baseUrl + clientId + scope + redirectUrl
 }

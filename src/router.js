@@ -46,6 +46,27 @@ router.get('/get-playlist-by-id', async (req, res) => {
     res.status(200).json(response)
 })
 
+router.get('/get-devices', async (req, res) => {
+    console.log('GET request on /get-devices')
+    const response = await spotifyApi.getMyDevices()
+    res.status(200).json(response)
+})
+
+router.post('/pause', async (req, res) => {
+    console.log('GET request on /pause')
+    console.log(req.body.id);
+    const response = await spotifyApi.pause({device_id: req.body.id})
+    res.status(200).json(response)
+})
+
+router.post('/play', async (req, res) => {
+    console.log('GET request on /pause')
+    console.log(req.body.id);
+    const response = await spotifyApi.play({device_id: req.body.id})
+    res.status(200).json(response)
+})
+
+
 module.exports = {
     router
 }
